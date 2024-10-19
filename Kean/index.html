@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KEAN - Keep Every Asset Noticed</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Overlay and Modal -->
+    <div id="overlay" class="overlay"></div>
+    <div id="modal" class="modal">
+        <p class="modal-text">You haven't selected a profile picture. Do you want to proceed without one?</p>
+        <button id="yesButton" class="modal-button">Yes</button>
+        <button id="noButton" class="modal-button">No</button>
+    </div>
+
+    <!-- Main Content -->
+    <video autoplay loop muted class="background-video">
+        <source src="cyber-background.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div id="mainContent" class="container">
+        <!-- Login Section -->
+        <img src="logo.png" alt="KEAN Logo" class="floating-logo"> <!-- Logo only in Login section -->
+        <p class="slogan">Keep Every Asset Noticed</p>
+
+        <!-- Login Form -->
+        <div id="loginContainer" class="form-container">
+            <form id="loginForm">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit" class="login-button">Login</button> <!-- Black Login button -->
+            </form>
+            <div class="register-link">
+                <p>Don't have an account? <a href="#" id="showRegisterLink">Register</a></p> <!-- Blue Register link -->
+            </div>
+        </div>
+
+        <!-- Register Form -->
+        <div id="registerContainer" class="form-container" style="display: none;">
+            <div class="registration-header">Registration Form</div>
+
+            <form id="registerForm">
+                <label for="registerUsername">Username:</label>
+                <input type="text" id="registerUsername" name="username" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="registerPassword">Password:</label>
+                <input type="password" id="registerPassword" name="password" required>
+
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+                <!-- Enlarged Profile Picture Section -->
+                <label for="profilePicture">Choose a Profile Picture:</label>
+                <div class="profile-picture-container">
+                    <img id="profilePreview" src="profile-pic.jpg" alt="Default Profile Picture">
+                    <input type="file" id="profilePicture" name="profilePicture" accept="image/*" onchange="previewImage(event)">
+                </div>
+
+                <button type="submit" class="register-button">Register</button> <!-- Black Register button -->
+            </form>
+            <div class="register-link">
+                <p>Already have an account? <a href="#" id="showLoginLink">Login</a></p> <!-- Blue Login link -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Add a JavaScript function to preview the image, reset it, handle modal, and registration -->
+    <script>
+        // Image Preview Logic
+        function previewImage(event) {
+            const reader = new FileReader();
+            const preview = document.getElementById('profilePreview');
+            
+            reader.onload = function() {
+                preview.src = reader.result;
+            }
+            
+            if (event.target.files[0]) {
+                reader.readAsDataURL(event.target.files[0]);
+            }
+        }
+
+        // Toggle between login and register forms
+        document.getElementById('showRegisterLink').onclick = function() {
+            document.getElementById('loginContainer').style.display = 'none';
+            document.getElementById('registerContainer').style.display = 'block';
+            resetProfilePicture();
+        };
+
+        document.getElementById('showLoginLink').onclick = function() {
+            document.getElementById('registerContainer').style.display = 'none';
+            document.getElementById('loginContainer').style.display = 'block';
+        };
+
+        // Reset profile picture to default when switching forms
+        function resetProfilePicture() {
+            document.getElementById('profilePreview').src = 'profile-pic.jpg';
+            document.getElementById('profilePicture').value = '';
+        }
+
+        // Handle registration form submission
+        document.getElementById('registerForm').onsubmit = function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const profilePicture = document.getElementById('profilePicture').value;
+
+            // Show notification modal if profile picture is not selected
+            if (!profilePicture) {
+                showModal();
+            } else {
+                window.location.href = "success.html"; // Redirect to success.html
+            }
+        };
+
+        // Show modal
+        function showModal() {
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('modal').style.display = 'block';
+            document.getElementById('mainContent').classList.add('blur'); // Blur background
+        }
+
+        // Hide modal
+        function hideModal() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('modal').style.display = 'none';
+            document.getElementById('mainContent').classList.remove('blur'); // Unblur background
+        }
+
+        // Handle Yes button in modal (Proceed without profile picture)
+        document.getElementById('yesButton').onclick = function() {
+            hideModal();
+            window.location.href = "success.html"; // Redirect to success.html
+        };
+
+        // Handle No button in modal (Stay on registration form)
+        document.getElementById('noButton').onclick = function() {
+            hideModal(); // Close modal without redirect
+        };
+    </script>
+</body>
+</html>

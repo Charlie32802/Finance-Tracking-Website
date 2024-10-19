@@ -1,0 +1,265 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    overflow: hidden;
+}
+
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    object-fit: cover;
+}
+
+.container {
+    text-align: center;
+    color: black;
+    z-index: 1;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.8); /* Transparent white */
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: auto;
+}
+
+.floating-logo {
+    width: 180px;
+    margin-bottom: 10px;
+}
+
+.slogan {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.form-container {
+    text-align: left;
+}
+
+.form-container label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: black; /* Black text for visibility */
+}
+
+.form-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    color: black;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+button.login-button {
+    background-color: black; /* Black button for Login */
+    color: white;
+}
+
+button.login-button:hover {
+    opacity: 0.8; /* Slight opacity on hover */
+}
+
+button.register-button {
+    background-color: black;
+    color: white;
+}
+
+button.register-button:hover {
+    opacity: 0.8;
+}
+
+.register-link a {
+    color: blue; /* Changed the color to blue */
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+.profile-picture-container {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.profile-picture-container img {
+    width: 150px; /* Increased size for square profile picture */
+    height: 150px;
+    margin-right: 10px;
+    object-fit: cover; /* Prevent image overflow */
+    border: 1px solid #ddd; /* Added border for better visibility */
+}
+
+input[type="file"] {
+    padding: 0;
+    margin: 0;
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.registration-header {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 600;
+    color: black;
+    margin-bottom: 20px;
+}
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    overflow: hidden;
+}
+
+.success-container {
+    text-align: center;
+    color: black;
+    padding: 30px;
+    background-color: rgba(144, 238, 144, 0.9); /* Light green background */
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 600px; /* Set a maximum width */
+    margin: 20px; /* Margin around the container */
+}
+
+.success-container h1 {
+    font-size: 32px; /* Increased font size for emphasis */
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.success-container p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: black; /* Black button */
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.button:hover {
+    background-color: darkgray; /* Slightly lighter on hover */
+    opacity: 0.8; /* Slight opacity on hover */
+}
+
+/* Background Blur when modal is active */
+.blur {
+    filter: blur(5px);
+}
+
+/* Modal (luxurious style) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 999; /* Make it appear on top */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 400px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Luxurious look for buttons */
+.modal-button {
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+/* Yes button specific styles */
+#yesButton {
+    background-color: #4CAF50; /* Green */
+}
+
+#yesButton:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* No button specific styles */
+#noButton {
+    background-color: #f44336; /* Red */
+}
+
+#noButton:hover {
+    background-color: #e53935; /* Darker red on hover */
+}
+
+/* Modal text */
+.modal-text {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Overlay to dim background */
+.overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 998; /* Behind the modal */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+}
